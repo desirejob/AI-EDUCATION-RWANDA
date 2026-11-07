@@ -1,0 +1,10 @@
+# Free Render service for demonstrations only.
+# The free filesystem is ephemeral: accounts and uploaded PDFs may be lost.
+services:
+  - type: web
+    name: umuseke-rwanda-study-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 250" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#174f42"/><stop offset="1" stop-color="#0b3b32"/></linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8da966"/><stop offset="1" stop-color="#66834f"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h520v250H0z"/>
+  <circle cx="420" cy="45" r="26" fill="#fad201" opacity=".94"/>
+  <path d="M0 155c76-42 133-21 207-49 75-29 147 8 313-29v173H0z" fill="#315f48"/>
+  <path d="M0 192c91-42 166-53 250-25 85 29 161-22 270-16v99H0z" fill="url(#hill)"/>
+  <path d="M0 218c100-21 179-17 264 5 75 20 171-16 256-8v35H0z" fill="#4f714b"/>
+  <!-- School table and books -->
+  <path d="M108 179h283l-19 13H125z" fill="#e7b76f"/>
+  <path d="m125 192-9 48h11l13-46m240-2 10 48h-12l-14-46" fill="#b9824f"/>
+  <path d="M176 164h84v14h-84z" fill="#f4f0df"/>
+  <path d="M182 154h77v10h-77z" fill="#00a1de"/>
+  <path d="M187 145h70v9h-70z" fill="#fad201"/>
+  <path d="M219 145v33" stroke="#d5ddc9" stroke-width="2"/>
+  <!-- Learner at left: school uniform and open book -->
+  <path d="M57 178c2-20 15-31 34-31s32 11 34 31v13H57z" fill="#00a1de"/>
+  <path d="M67 150c-4-19 5-35 25-35s30 16 25 35l-8 17H75z" fill="#754832"/>
+  <ellipse cx="92" cy="124" rx="19" ry="23" fill="#8a573a"/>
+  <path d="M73 122c0-20 11-29 25-27 11 1 18 10 17 22-7-4-12-11-14-15-7 8-16 13-28 14z" fill="#241c19"/>
+  <circle cx="85" cy="125" r="1.5" fill="#1e211b"/><circle cx="99" cy="125" r="1.5" fill="#1e211b"/>
+  <path d="M87 136c3 2 7 2 10 0" stroke="#5b3027" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="m80 147 12 12 12-12" fill="#f2efe2"/><path d="M92 159v18" stroke="#e5c94c" stroke-width="2"/>
+  <!-- Learner at right -->
+  <path d="M321 179c3-20 16-31 35-31s32 11 35 31v13H321z" fill="#f4f0df"/>
+  <path d="M331 150c-5-18 5-34 25-34s29 16 24 34l-8 17h-33z" fill="#5b4933"/>
+  <ellipse cx="356" cy="124" rx="19" ry="23" fill="#70442f"/>
+  <path d="M337 121c0-20 11-29 25-27 11 1 18 10 17 22-7-4-12-11-14-15-7 8-16 13-28 14z" fill="#171817"/>
+  <circle cx="349" cy="125" r="1.5" fill="#1e211b"/><circle cx="363" cy="125" r="1.5" fill="#1e211b"/>
+  <path d="M351 136c3 2 7 2 10 0" stroke="#502a24" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="m344 148 12 12 12-12" fill="#00a1de"/><path d="M356 160v17" stroke="#e5c94c" stroke-width="2"/>
+  <!-- Open textbook in foreground -->
+  <path d="M246 169c-22-8-39-7-55 0v28c17-6 34-6 55 2zm0 0c21-8 39-7 55 0v28c-17-6-34-6-55 2z" fill="#fffdf4" stroke="#d9dfcf" stroke-width="2"/>
+  <path d="M202 177c11-3 22-3 33 0m-33 6c11-3 22-3 33 0m22-6c11-3 22-3 33 0m-33 6c11-3 22-3 33 0" stroke="#a9b8a5" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M246 169v30" stroke="#d7ddcc" stroke-width="2"/>
+</svg>

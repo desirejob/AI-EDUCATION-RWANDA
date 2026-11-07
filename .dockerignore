@@ -1,0 +1,13 @@
+.git
+node_modules
+data/uploads
+data/index.json
+data/users.json
+__pycache__
+*.pyc
+*.pdf
+*.docx
+Untitled Document 1
+.aws
+.codex
+.agents

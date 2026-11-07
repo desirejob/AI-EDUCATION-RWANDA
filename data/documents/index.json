@@ -1,0 +1,175 @@
+{
+  "collection": "Umuseke local demonstration library",
+  "official_reb_material": false,
+  "chapters": [
+    {
+      "id": "01",
+      "title": "Rational numbers",
+      "path": "mathematics/s2/chapter_01_numbers/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 1,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "02",
+      "title": "Fractions",
+      "path": "mathematics/s2/chapter_02_fractions/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 2,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "03",
+      "title": "Ratio and proportion",
+      "path": "mathematics/s2/chapter_03_ratio/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 3,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "04",
+      "title": "Percentages",
+      "path": "mathematics/s2/chapter_04_percentages/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 4,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "05",
+      "title": "Algebraic expressions",
+      "path": "mathematics/s2/chapter_05_algebra/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 5,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "06",
+      "title": "Linear equations",
+      "path": "mathematics/s2/chapter_06_equations/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 6,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "07",
+      "title": "Inequalities",
+      "path": "mathematics/s2/chapter_07_inequalities/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 7,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "08",
+      "title": "Geometry and angles",
+      "path": "mathematics/s2/chapter_08_geometry/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 8,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "09",
+      "title": "Area and circles",
+      "path": "mathematics/s2/chapter_09_area_circles/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 9,
+      "source": "Umuseke demo; not REB"
+    },
+    {
+      "id": "10",
+      "title": "Statistics and probability",
+      "path": "mathematics/s2/chapter_10_statistics_probability/lesson.md",
+      "subject": "Mathematics",
+      "level": "S2",
+      "internal_page": 10,
+      "source": "Umuseke demo; not REB"
+    }
+  ],
+  "rwanda_context_files": [
+    "rwanda/README.md",
+    "rwanda/context_examples.json"
+  ],
+  "structured_formulas": "formulas.csv",
+  "additional_documents": [
+    {
+      "id": "SCI-01",
+      "title": "Forces and motion",
+      "path": "science/s2/chapter_01_forces_motion.md",
+      "subject": "Science",
+      "level": "S2",
+      "chapter": "01 · Forces and motion",
+      "page": 1,
+      "type": "lesson",
+      "language": "en",
+      "source": "Umuseke demonstration note; not REB"
+    },
+    {
+      "id": "SCI-02",
+      "title": "Energy and simple machines",
+      "path": "science/s2/chapter_02_energy_machines.md",
+      "subject": "Science",
+      "level": "S2",
+      "chapter": "02 · Energy and simple machines",
+      "page": 2,
+      "type": "lesson",
+      "language": "en",
+      "source": "Umuseke demonstration note; not REB"
+    },
+    {
+      "id": "SCI-03",
+      "title": "Matter and mixtures",
+      "path": "science/s2/chapter_03_matter_mixtures.md",
+      "subject": "Science",
+      "level": "S2",
+      "chapter": "03 · Matter and mixtures",
+      "page": 3,
+      "type": "lesson",
+      "language": "en",
+      "source": "Umuseke demonstration note; not REB"
+    },
+    {
+      "id": "RW-01",
+      "title": "Percentages in a school market",
+      "path": "rwanda/chapter_01_school_market.md",
+      "subject": "Rwanda context",
+      "level": "S2",
+      "chapter": "01 · School market mathematics",
+      "page": 1,
+      "type": "lesson",
+      "language": "en",
+      "source": "Locally authored fictional scenario; not official data"
+    },
+    {
+      "id": "RW-02",
+      "title": "Ratios in a school garden",
+      "path": "rwanda/chapter_02_school_garden.md",
+      "subject": "Rwanda context",
+      "level": "S2",
+      "chapter": "02 · School garden ratios",
+      "page": 2,
+      "type": "lesson",
+      "language": "en",
+      "source": "Locally authored fictional scenario; not official data"
+    },
+    {
+      "id": "RW-03",
+      "title": "Distance and time on a school journey",
+      "path": "rwanda/chapter_03_school_journey.md",
+      "subject": "Rwanda context",
+      "level": "S2",
+      "chapter": "03 · School journey data",
+      "page": 3,
+      "type": "lesson",
+      "language": "en",
+      "source": "Locally authored fictional scenario; not official data"
+    }
+  ]
+}

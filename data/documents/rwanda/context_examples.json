@@ -1,0 +1,37 @@
+{
+  "title": "Rwanda-context mathematics examples",
+  "provenance": "Locally authored educational scenarios; not official statistics, curriculum guidance, or REB material.",
+  "currency": "RWF",
+  "examples": [
+    {
+      "id": "market-percentage",
+      "subject": "Mathematics",
+      "level": "S2",
+      "topic": "Percentages",
+      "scenario": "A fictional school-market item is priced at 5,000 RWF and its seller increases the price by 20%.",
+      "question": "Calculate the increase and the new price.",
+      "worked_answer": "20% × 5,000 = 1,000 RWF; 5,000 + 1,000 = 6,000 RWF.",
+      "status": "Illustrative values; not a report of real market prices."
+    },
+    {
+      "id": "school-garden-ratio",
+      "subject": "Mathematics",
+      "level": "S2",
+      "topic": "Ratio",
+      "scenario": "A fictional school garden has 12 tomato seedlings and 8 bean seedlings.",
+      "question": "Write the ratio of tomato to bean seedlings in simplest form.",
+      "worked_answer": "12:8 = 3:2.",
+      "status": "Illustrative classroom scenario."
+    },
+    {
+      "id": "journey-distance",
+      "subject": "Mathematics",
+      "level": "S2",
+      "topic": "Speed, distance and time",
+      "scenario": "A fictional learner travels 6 km in 30 minutes on a school journey.",
+      "question": "Find the average speed in kilometres per hour.",
+      "worked_answer": "30 minutes = 0.5 hours; speed = 6 ÷ 0.5 = 12 km/h.",
+      "status": "Illustrative classroom scenario; not a transport measurement."
+    }
+  ]
+}

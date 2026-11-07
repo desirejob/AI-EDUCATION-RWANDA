@@ -1,0 +1,12 @@
+subject,level,chapter,name,formula,conditions,unit_example,source_status
+Mathematics,S2,02 Fractions,Addition of fractions,"a/b + c/d = (ad + bc)/(bd)",b and d non-zero,unitless,"Umuseke demonstration; not REB"
+Mathematics,S2,03 Ratio,Direct proportion,"y = kx",k constant,RWF per item,"Umuseke demonstration; not REB"
+Mathematics,S2,04 Percentages,Percent of quantity,"(p/100) * N",p percentage points,RWF or unit of N,"Umuseke demonstration; not REB"
+Mathematics,S2,05 Algebra,Distributive property,"k(a+b) = ka+kb",real numbers,algebraic,"Umuseke demonstration; not REB"
+Mathematics,S2,06 Linear equations,Solve ax+b=c,"x=(c-b)/a",a non-zero,unit depends on x,"Umuseke demonstration; not REB"
+Mathematics,S2,09 Area and circles,Rectangle area,"A=l*w",l and w same length units,square units,"Umuseke demonstration; not REB"
+Mathematics,S2,09 Area and circles,Triangle area,"A=(b*h)/2",b and h perpendicular lengths,square units,"Umuseke demonstration; not REB"
+Mathematics,S2,09 Area and circles,Circle circumference,"C=2*pi*r = pi*d",d=2r,length units,"Umuseke demonstration; not REB"
+Mathematics,S2,09 Area and circles,Circle area,"A=pi*r^2",r radius,square units,"Umuseke demonstration; not REB"
+Mathematics,S2,10 Statistics,Mean,"sum(x_i)/n",n positive,same as data,"Umuseke demonstration; not REB"
+Mathematics,S2,10 Probability,Equally likely outcomes,"P(E)=favourable/total",finite equally likely outcomes,0 to 1,"Umuseke demonstration; not REB"

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" role="img" aria-label="Flag of Rwanda">
+  <rect width="30" height="20" rx="2" fill="#20603d"/>
+  <path fill="#00a1de" d="M2 2h26v10H2z"/>
+  <path fill="#fad201" d="M2 12h26v6H2z"/>
+  <circle cx="22" cy="7" r="3.1" fill="#fad201"/>
+  <g fill="#00a1de">
+    <path d="m22 2.4.6 2.1-.6.3-.6-.3zM22 11.6l-.6-2.1.6-.3.6.3zM17.4 7l2.1-.6.3.6-.3.6zM26.6 7l-2.1.6-.3-.6.3-.6z"/>
+    <path d="m18.8 3.8 2 .9-.1.7-.7.1zM25.2 10.2l-2-.9.1-.7.7-.1zM18.8 10.2l1.2-1.8.7.1.1.7zM25.2 3.8 24 5.6l-.7-.1-.1-.7z"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+{"id":"Q01","topic":"Rational numbers","type":"order","question":"Order −3/4, 0.5 and −0.8 from smallest to largest.","expected_answer":"−0.8, −3/4, 0.5","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q02","topic":"Fractions","type":"calculate","question":"Calculate 2/3 + 3/4.","expected_answer":"17/12 (or 1 5/12)","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q03","topic":"Fractions","type":"simplify","question":"Simplify 18/24.","expected_answer":"3/4","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q04","topic":"Decimals","type":"calculate","question":"Calculate 0.25 × 12.","expected_answer":"3","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q05","topic":"Percentages","type":"word_problem","question":"What is 15% of 80,000 RWF?","expected_answer":"12,000 RWF","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q06","topic":"Percentages","type":"word_problem","question":"A price of 5,000 RWF increases by 20%. What is the new price?","expected_answer":"6,000 RWF","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q07","topic":"Ratio","type":"word_problem","question":"Share 120 in the ratio 3:5.","expected_answer":"45 and 75","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q08","topic":"Proportion","type":"word_problem","question":"Four notebooks cost 2,400 RWF. What do seven notebooks cost at the same rate?","expected_answer":"4,200 RWF","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q09","topic":"Algebra","type":"simplify","question":"Simplify 3a + 2a − a.","expected_answer":"4a","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q10","topic":"Algebra","type":"expand","question":"Expand 2(x + 5).","expected_answer":"2x + 10","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q11","topic":"Algebra","type":"factorise","question":"Factorise 6x + 9.","expected_answer":"3(2x + 3)","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q12","topic":"Algebra","type":"substitute","question":"Find 3x − 2 when x = 4.","expected_answer":"10","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q13","topic":"Equations","type":"solve","question":"Solve 2x + 3 = 9.","expected_answer":"x = 3","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q14","topic":"Equations","type":"solve","question":"Solve 4x − 5 = 19.","expected_answer":"x = 6","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q15","topic":"Equations","type":"brackets","question":"Solve 5(x + 1) = 30.","expected_answer":"x = 5","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q16","topic":"Inequalities","type":"solve","question":"Solve x + 4 > 9.","expected_answer":"x > 5","language":"en","source_page":null,"status":"sample_unverified"}
+{"id":"Q17","topic":"Inequalities","type":"solve","question":"Solve 2x − 1 ≤ 7.","expected_answer":"x ≤ 4","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q18","topic":"Coordinates","type":"identify","question":"In which quadrant is the point (−2, 3)?","expected_answer":"Second quadrant","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q19","topic":"Straight lines","type":"calculate","question":"Find the gradient of the line through (0,1) and (2,5).","expected_answer":"2","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q20","topic":"Geometry","type":"fact","question":"What is the sum of the interior angles in a triangle?","expected_answer":"180°","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q21","topic":"Geometry","type":"fact","question":"What do angles on a straight line add up to?","expected_answer":"180°","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q22","topic":"Area","type":"calculate","question":"Find the area of a rectangle 8 cm by 5 cm.","expected_answer":"40 cm²","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q23","topic":"Area","type":"calculate","question":"Find the area of a triangle with base 10 cm and height 6 cm.","expected_answer":"30 cm²","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q24","topic":"Circle","type":"calculate","question":"Find the circumference of a circle of radius 7 cm, using π = 22/7.","expected_answer":"44 cm","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q25","topic":"Statistics","type":"mean","question":"Find the mean of 2, 3, 3, 4, 8.","expected_answer":"4","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q26","topic":"Statistics","type":"median","question":"Find the median of 5, 1, 3, 9, 7.","expected_answer":"5","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q27","topic":"Probability","type":"calculate","question":"What is the probability of rolling an even number on a fair six-sided die?","expected_answer":"1/2","language":"en","status":"sample_unverified","source_page":null}
+{"id":"Q28","topic":"Out of corpus","type":"refusal","question":"Who won the 2022 football World Cup?","expected_answer":"Refuse: not found in the textbook; refer to teacher.","language":"en","status":"out_of_corpus_refusal","source_page":null}
+{"id":"Q29","topic":"Out of corpus","type":"refusal","question":"Explain quantum entanglement.","expected_answer":"Refuse: not found in the textbook; refer to teacher.","language":"en","status":"out_of_corpus_refusal","source_page":null}
+{"id":"Q30","topic":"Out of corpus","type":"refusal","question":"Compute the integral of x² (not in the selected S2 book).","expected_answer":"Refuse: not found in the textbook; refer to teacher.","language":"en","status":"out_of_corpus_refusal","source_page":null}
