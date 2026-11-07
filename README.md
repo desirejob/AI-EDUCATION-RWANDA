@@ -1,135 +1,134 @@
-# Umuseke — tuteur IA ancré pour le secondaire rwandais
+# Umuseke: a grounded AI tutor for Rwandan secondary school
 
-Prototype web mobile-first et installable (PWA), accompagné d'une API Node native. Le périmètre de démonstration est **Mathématiques, Senior 2 (S2)**, avec réponses appuyées sur les passages des documents chargés et leurs pages.
+A mobile-first, installable (PWA) web prototype, accompanied by a native Node API. The demonstration scope is **Mathematics, Senior 2 (S2)**, with answers supported by passages from the loaded documents and their pages.
 
-> **État honnête du livrable.** Le dossier initial contenait le brief et un document de conception, mais aucun manuel REB ni code. L'API, l'interface et les outils d'évaluation de ce dépôt sont un prototype créé pour ce défi. Les données d'évaluation comportent des questions de démonstration et ne sont pas des résultats d'essais. Aucun essai avec des élèves/enseignants, déploiement public, validation de kinyarwanda par locuteur natif, compte GitHub/Hugging Face, ni autorisation de droits des manuels n'est attesté. Ne présentez pas ces points comme accomplis.
+> **Honest status of the deliverable.** The initial folder contained the brief and a design document, but no REB textbook or code. The API, interface and evaluation tools in this repository are a prototype created for this challenge. The evaluation data contains demonstration questions and is not trial results. No trial with students/teachers, public deployment, Kinyarwanda validation by a native speaker, GitHub/Hugging Face account, or textbook rights authorization is attested. Do not present these points as accomplished.
 
-## Fonctionnalités présentes
+## Features present
 
-- PWA web responsive avec navigation Étude / Bibliothèque / Progression / état de préparation au pilote, interface anglais/kinyarwanda, lecteur de passages par page et import de PDF autorisés.
-- Vue de préparation qui sépare prototype, preuves encore à recueillir (3 personnes, 2 enseignants, langues, red team, modèles) et garde-fous non implémentés.
-- API Node native : ingestion PDF texte via `pdftotext`, page par page, recherche lexicale, réponse extraite et citations; refus si aucun passage ne correspond.
-- Bibliothèque structurée de dix chapitres sous `data/documents/mathematics/s2/`, avec index JSON, formules CSV, équations, exemples et tableaux. Le contenu de démonstration est explicitement marqué **NOT REB**; aucun document officiel rwandais n'est fourni dans ce dépôt. Les exemples de contexte rwandais sous `data/documents/rwanda/` sont illustratifs, pas des données gouvernementales.
-- Fournisseur de génération configurable via un endpoint OpenAI-compatible, incluant Ollama local; sans fournisseur, chemin extractif qui ne prétend pas avoir résolu l'exercice.
-- Hors ligne : shell et ressources de l'application en cache. Les réponses du tuteur demandent le réseau; le modèle embarqué et l'indexation dans SQLite ne sont pas implémentés.
-- Comptes locaux par pseudonyme : inscription élève, connexion/déconnexion, rôle enseignant protégé par code d'invitation, et création d'un administrateur depuis le terminal. Les mots de passe sont hachés avec scrypt; les sessions expirent après huit heures et sont conservées en mémoire.
-- L'import PDF est réservé côté API aux rôles enseignant et administrateur. Assessment reste bloqué : l'authentification seule ne fournit pas encore l'affectation ni le contrôle d'une évaluation par un enseignant.
-- Envoi du PDF limité à 25 Mo. Les scans sans couche texte sont détectés implicitement comme pages sans extraction; aucun OCR n'est intégré.
+- Responsive PWA web app with Study / Library / Progress / pilot-readiness navigation, English/Kinyarwanda interface, page-by-page passage reader and import of authorized PDFs.
+- Readiness view that separates the prototype, evidence still to be gathered (3 people, 2 teachers, languages, red team, models) and safeguards not implemented.
+- Native Node API: text PDF ingestion via `pdftotext`, page by page, lexical search, extracted answer and citations; refusal if no passage matches.
+- Structured library of ten chapters under `data/documents/mathematics/s2/`, with JSON index, CSV formulas, equations, examples and tables. The demonstration content is explicitly marked **NOT REB**; no official Rwandan document is provided in this repository. The Rwandan context examples under `data/documents/rwanda/` are illustrative, not government data.
+- Configurable generation provider via an OpenAI-compatible endpoint, including local Ollama; without a provider, an extractive path that does not claim to have solved the exercise.
+- Offline: application shell and resources cached. Tutor answers require the network; the embedded model and SQLite indexing are not implemented.
+- Local accounts by pseudonym: student registration, login/logout, teacher role protected by an invitation code, and administrator creation from the terminal. Passwords are hashed with scrypt; sessions expire after eight hours and are kept in memory.
+- PDF import is restricted on the API side to the teacher and administrator roles. Assessment remains blocked: authentication alone does not yet provide teacher assignment or control of an assessment.
+- PDF upload limited to 25 MB. Scans without a text layer are implicitly detected as pages without extraction; no OCR is integrated.
 
-## Démarrage local (environ 5 minutes)
+## Local start (about 5 minutes)
 
-Prérequis : Node.js 20+ et `pdftotext` (Poppler; nécessaire pour extraire les PDF).
+Prerequisites: Node.js 20+ and `pdftotext` (Poppler; required to extract PDFs).
 
-La liste complète des dépendances actuelles et futures est dans [DEPENDENCIES.md](DEPENDENCIES.md).
+The complete list of current and future dependencies is in [DEPENDENCIES.md](DEPENDENCIES.md).
 
 ```bash
 npm start
 ```
 
-Ou lance directement `./start.sh`. Le serveur démarre sur le port 8000 par défaut; change-le avec `PORT=8080 ./start.sh` si nécessaire.
+Or run `./start.sh` directly. The server starts on port 8000 by default; change it with `PORT=8080 ./start.sh` if needed.
 
-Ouvrir [http://127.0.0.1:8000](http://127.0.0.1:8000). Aucun modèle n'est requis pour démarrer. Une fois un PDF textuel chargé dans Bibliothèque, l'API répond à partir des passages retrouvés. Le contenu initial explique le flux; il n'affiche pas de réponses de démonstration qui pourraient être confondues avec le manuel.
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000). No model is required to start. Once a text PDF is loaded in Library, the API answers from the retrieved passages. The initial content explains the flow; it does not display demonstration answers that could be mistaken for the textbook.
 
-### Qwen ou Llama (facultatif)
+### Qwen or Llama (optional)
 
-Installer Ollama, télécharger une fois `qwen3:4b` avec `ollama pull qwen3:4b`, démarrer Ollama, puis lancer `./start-qwen.sh`. Le modèle peut être remplacé, par exemple par `LLM_MODEL=llama3.2:1b ./start-qwen.sh`. Voir [AI_MODEL_SETUP.md](AI_MODEL_SETUP.md). Aucun gros modèle n'est téléchargé automatiquement.
+Install Ollama, download `qwen3:4b` once with `ollama pull qwen3:4b`, start Ollama, then run `./start-qwen.sh`. The model can be replaced, for example with `LLM_MODEL=llama3.2:1b ./start-qwen.sh`. See [AI_MODEL_SETUP.md](AI_MODEL_SETUP.md). No large model is downloaded automatically.
 
-### Partager et installer
+### Sharing and installing
 
-- Pour partager le code, transmettre le dossier du projet (sans les PDF d'élèves ni les secrets). La personne installe Node.js 20+, puis lance `npm start` ou `./start-8080.sh`.
-- Pour une exécution reproductible avec Docker : `docker build -t umuseke .` puis `docker run --name umuseke --rm -p 127.0.0.1:8080:8080 -v umuseke-data:/var/lib/umuseke -e UMUSEKE_TEACHER_SIGNUP_CODE="$UMUSEKE_TEACHER_SIGNUP_CODE" umuseke`. Ouvrir `http://localhost:8080`. Le conteneur fonctionne sans privilèges root. Le volume conserve les comptes, les PDF chargés et leur index. Le port est lié à localhost; ne le remplacez pas par une exposition publique HTTP.
-- Sur `localhost`, Chrome/Edge permettent d'installer la PWA depuis le bouton « Install app ». Une installation à distance exige une adresse HTTPS et un hébergement accessible; le dossier local ne crée pas à lui seul un lien public. Pour un accès Internet, placez le conteneur derrière un reverse proxy maintenu qui fournit TLS, limite l'accès réseau et applique des sauvegardes. Ne transmettez jamais `LLM_API_KEY` au navigateur.
-- Les imports PDF et index générés sont locaux au dossier `data/`; sauvegarder ce dossier si ces documents doivent être conservés. Les documents de démonstration sont déjà inclus.
+- To share the code, send the project folder (without student PDFs or secrets). The recipient installs Node.js 20+, then runs `npm start` or `./start-8080.sh`.
+- For a reproducible run with Docker: `docker build -t umuseke .` then `docker run --name umuseke --rm -p 127.0.0.1:8080:8080 -v umuseke-data:/var/lib/umuseke -e UMUSEKE_TEACHER_SIGNUP_CODE="$UMUSEKE_TEACHER_SIGNUP_CODE" umuseke`. Open `http://localhost:8080`. The container runs without root privileges. The volume keeps the accounts, uploaded PDFs and their index. The port is bound to localhost; do not replace this with public HTTP exposure.
+- On `localhost`, Chrome/Edge allow installing the PWA from the "Install app" button. A remote installation requires an HTTPS address and accessible hosting; the local folder alone does not create a public link. For Internet access, place the container behind a maintained reverse proxy that provides TLS, restricts network access and applies backups. Never send `LLM_API_KEY` to the browser.
+- Imported PDFs and generated indexes are local to the `data/` folder; back up this folder if these documents must be kept. The demonstration documents are already included.
 
-#### Démo gratuite sur Render
+#### Free demo on Render
 
-Le fichier `render.yaml` configure un Web Service Docker gratuit avec contrôle de santé. Pour le lancer, placez ce projet dans un dépôt GitHub privé ou public auquel votre compte Render a accès, puis dans Render choisissez **New → Blueprint**, connectez ce dépôt et appliquez le Blueprint. Render construit l'image avec le Dockerfile et fournit une URL HTTPS. Voir la [référence officielle des Blueprints](https://render.com/docs/blueprint-spec) et la [référence Docker](https://render.com/docs/docker).
+The `render.yaml` file configures a free Docker Web Service with a health check. To launch it, place this project in a private or public GitHub repository that your Render account can access, then in Render choose **New → Blueprint**, connect this repository and apply the Blueprint. Render builds the image with the Dockerfile and provides an HTTPS URL. See the [official Blueprint reference](https://render.com/docs/blueprint-spec) and the [Docker reference](https://render.com/docs/docker).
 
-L'offre gratuite est uniquement destinée à une démonstration : le service peut se mettre en veille et son système de fichiers n'est pas persistant. Les comptes, sessions et PDF importés peuvent disparaître lors d'un redémarrage ou redéploiement. Aucun modèle IA n'est configuré par défaut. N'y saisissez ni données d'élèves ni documents confidentiels. Pour conserver les données, il faut un stockage persistant, généralement payant; consultez les [limites officielles des services gratuits](https://render.com/docs/free).
+The free tier is intended only for a demonstration: the service may go to sleep and its file system is not persistent. Accounts, sessions and imported PDFs may disappear on a restart or redeployment. No AI model is configured by default. Do not enter student data or confidential documents there. To keep data, persistent storage is needed, usually paid; see the [official free service limits](https://render.com/docs/free).
 
-Ce dossier de travail n'est actuellement relié à aucun dépôt Git distant et aucun compte Render n'est connecté dans l'environnement de développement. Le Blueprint prépare le service, mais le lancement réel nécessite d'abord un dépôt Git auquel vous avez autorisé l'accès dans Render.
+This working folder is currently linked to no remote Git repository and no Render account is connected in the development environment. The Blueprint prepares the service, but the actual launch first requires a Git repository to which you have authorized access in Render.
 
-### Modèle local ou cloud
+### Local or cloud model
 
-Définir les variables d'environnement avant le démarrage. Exemple Ollama exposant l'API compatible OpenAI :
+Set the environment variables before starting. Example with Ollama exposing the OpenAI-compatible API:
 
 ```bash
 LLM_BASE_URL=http://localhost:11434/v1 LLM_MODEL=qwen3:4b npm start
 ```
 
-Pour un endpoint cloud compatible, définir aussi `LLM_API_KEY` et suivre les conditions du fournisseur. Garder les clés côté serveur, jamais dans le navigateur. Le fournisseur reçoit les passages et questions; ne pas envoyer de données personnelles d'élèves.
+For a compatible cloud endpoint, also set `LLM_API_KEY` and follow the provider's terms. Keep keys on the server side, never in the browser. The provider receives the passages and questions; do not send personal student data.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  S[Élève / enseignant] --> PWA[Interface PWA bilingue]
-  PWA -->|question| API[Node API: règles pédagogiques]
-  API --> IDX[Recherche lexicale dans index JSON]
+  S[Student / teacher] --> PWA[Bilingual PWA interface]
+  PWA -->|question| API[Node API: pedagogical rules]
+  API --> IDX[Lexical search in JSON index]
   IDX -->|passages + pages| API
-  API -->|optionnel| LLM[Ollama local ou endpoint cloud]
-  API -->|réponse + citations| PWA
-  T[Enseignant] -->|PDF texte| API
-  PWA -. cache interface uniquement .-> SW[Service worker]
+  API -->|optional| LLM[Local Ollama or cloud endpoint]
+  API -->|answer + citations| PWA
+  T[Teacher] -->|text PDF| API
+  PWA -. UI cache only .-> SW[Service worker]
 ```
 
-**Limites d'architecture à traiter avant un pilote :** index lexical simple (pas d'embeddings/BM25), comptes conservés dans un fichier JSON local et sessions perdues au redémarrage, aucun journal d'audit ni réinitialisation de mot de passe, pas d'OCR ni extraction fiable des tableaux/équations depuis les PDF importés, et cache hors ligne limité à l'interface. L'authentification locale n'est pas un audit de sécurité ni une autorisation de pilote avec mineurs. Voir `docs/architecture.md` et `docs/known_limitations.md`.
+**Architecture limits to address before a pilot:** simple lexical index (no embeddings/BM25), accounts kept in a local JSON file and sessions lost on restart, no audit log or password reset, no OCR or reliable extraction of tables/equations from imported PDFs, and offline cache limited to the interface. Local authentication is not a security audit or a pilot authorization with minors. See `docs/architecture.md` and `docs/known_limitations.md`.
 
-## Évaluation
+## Evaluation
 
-Les matériaux sont dans `eval/`. Une commande de validation des fichiers de jeu est disponible :
+The materials are in `eval/`. A command to validate the dataset files is available:
 
 ```bash
 python -m eval.validate
 ```
 
-Elle vérifie le format et les comptes, pas la qualité pédagogique, l'exactitude des pages, la traduction ou l'efficacité des garde-fous. Les mesures de modèles/enseignants restent à recueillir réellement; ne renseigner aucun résultat inventé. Protocole: `docs/evaluation_protocol.md`.
+It checks the format and counts, not the pedagogical quality, page accuracy, translation or effectiveness of the safeguards. Model/teacher measurements remain to be actually collected; do not enter any invented results. Protocol: `docs/evaluation_protocol.md`.
 
-## Livrables du défi
+## Challenge deliverables
 
-| Exigence | Artefact | État |
+| Requirement | Artifact | Status |
 |---|---|---|
-| Plan et cas d'usage | `docs/workplan.md` | Préparé, à confirmer avec les manuels REB |
-| Risques mineurs | `docs/risk_register.md` | Préparé, à valider avec école/parents |
-| Extraction + métadonnées | `server.mjs`, index dans `data/` | Prototype PDF texte; pas les trois sources du défi |
-| RAG ancré + pages/refus | `server.mjs` | Recherche lexicale prototype, à calibrer |
-| Consigne et séquence difficile | `docs/tutor_prompt.md` | Rédigées; kinyarwanda à relire |
-| Site web mobile | `web/` | Prototype local |
-| Tests utilisateurs (3) | `docs/user_test_protocol.md` | Protocole seulement, séances à organiser |
-| Modèle cloud + modèle ouvert local | `server.mjs`, README | Interface configurable; non mesurés |
-| 30 Q, 20 bilingues, grille | `eval/` | Échantillon à mapper sur le manuel REB |
-| Comparaison de 3 modèles | `docs/evaluation_protocol.md` | Protocole, aucun résultat mesuré |
-| 25 invites adverses | `eval/red_team.jsonl` | Cas rédigés, exécutions à faire |
-| 2 enseignants + concordance | `docs/evaluation_protocol.md` | Protocole, séance non réalisée |
-| Coût/latence pour 10 000 élèves | `docs/cost_and_latency.md` | Estimation hypothétique explicite |
-| App mobile et hors ligne | PWA `web/` | Installable; pas appli native ni LLM hors ligne |
-| Dépôt et déploiement | fichiers présents | Local; aucun dépôt distant/déploiement |
-| Démo 7 min / note pilote | `docs/demo_and_recommendation.md` | Script et recommandation conditionnelle |
+| Plan and use case | `docs/workplan.md` | Prepared, to be confirmed with the REB textbooks |
+| Minor risks | `docs/risk_register.md` | Prepared, to be validated with school/parents |
+| Extraction + metadata | `server.mjs`, index in `data/` | Text PDF prototype; not the three sources of the challenge |
+| Grounded RAG + pages/refusal | `server.mjs` | Prototype lexical search, to be calibrated |
+| Prompt and difficult sequence | `docs/tutor_prompt.md` | Written; Kinyarwanda to be reviewed |
+| Mobile website | `web/` | Local prototype |
+| User tests (3) | `docs/user_test_protocol.md` | Protocol only, sessions to be organized |
+| Cloud model + local open model | `server.mjs`, README | Configurable interface; not measured |
+| 30 Q, 20 bilingual, rubric | `eval/` | Sample to be mapped to the REB textbook |
+| Comparison of 3 models | `docs/evaluation_protocol.md` | Protocol, no measured results |
+| 25 adversarial prompts | `eval/red_team.jsonl` | Cases written, runs to be done |
+| 2 teachers + agreement | `docs/evaluation_protocol.md` | Protocol, session not held |
+| Cost/latency for 10,000 students | `docs/cost_and_latency.md` | Explicitly hypothetical estimate |
+| Mobile and offline app | PWA `web/` | Installable; not a native app and no offline LLM |
+| Repository and deployment | files present | Local; no remote repository/deployment |
+| 7-min demo / pilot note | `docs/demo_and_recommendation.md` | Script and conditional recommendation |
 
-## Documents d'origine
+## Original documents
 
-Le brief source est `[FR]Challenge for education_ AI in Rwandan education system for secondary school learners.docx.pdf`; le cadrage initial, `Tuteur IA pour le secondaire rwandais — Solution au défi.docx`. Aucun de ces fichiers ne fournit les trois manuels du corpus demandé.
+The source brief is `[FR]Challenge for education_ AI in Rwandan education system for secondary school learners.docx.pdf`; the initial framing document is `Tuteur IA pour le secondaire rwandais — Solution au défi.docx`. Neither of these files provides the three textbooks of the requested corpus.
 
+## Academic dashboard space
 
-## Espace académique du tableau de bord
+The teacher space brings together the current library coverage (10 mathematics lessons, 3 science lessons and 3 Rwandan contexts), a guided practice sequence, the four criteria of the evaluation rubric and a list of evidence to be collected before a pilot. The units presented are demonstration content; they do not constitute a validated mapping of the REB curriculum. The rubric is a prepared tool, not a performance score. The sessions with three users, the review by two teachers, the linguistic validation and the model comparison remain to be carried out and documented.
 
-L'espace enseignant rassemble la couverture actuelle de la bibliothèque (10 leçons de mathématiques, 3 de sciences et 3 contextes rwandais), une séquence de pratique guidée, les quatre critères de la grille d'évaluation et une liste des preuves à recueillir avant un pilote. Les unités présentées sont des contenus de démonstration; elles ne constituent pas une cartographie validée du programme REB. La grille est un outil préparé, pas un score de performance. Les séances avec trois utilisateurs, la revue par deux enseignants, la validation linguistique et la comparaison de modèles restent à réaliser et à documenter.
+## Local accounts and roles
 
-## Comptes et rôles locaux
-
-Les apprenants s'inscrivent avec un pseudonyme (3–24 lettres/chiffres/`_`/`-`) et un mot de passe unique d'au moins 12 caractères. L'inscription publique crée uniquement un compte élève. Pour autoriser l'inscription enseignant, définir un code secret avant le démarrage :
+Learners register with a pseudonym (3–24 letters/digits/`_`/`-`) and a unique password of at least 12 characters. Public registration creates only a student account. To authorize teacher registration, set a secret code before starting:
 
 ```bash
-export UMUSEKE_TEACHER_SIGNUP_CODE='remplacer-par-un-secret-long'
+export UMUSEKE_TEACHER_SIGNUP_CODE='replace-with-a-long-secret'
 npm start
 ```
 
-Créer le compte administrateur depuis un terminal interactif (mot de passe masqué) avant le démarrage, ou après avoir arrêté le serveur : `npm run create-admin`. Pour Docker, créer le compte dans le volume avant de démarrer le site : `docker run --rm -it -v umuseke-data:/var/lib/umuseke umuseke npm run create-admin`. Le fichier `data/users.json` (ou `AUTH_DATA_DIR/users.json`) contient les empreintes et sels, est exclu de Git et doit être sauvegardé/protégé comme donnée privée. Les sessions sont en mémoire et prennent fin au redémarrage. Aucun nom réel ou nom d'école n'est demandé. Pour un pilote avec mineurs, faire évaluer le système et les procédures par l'établissement avant usage.
+Create the administrator account from an interactive terminal (masked password) before starting, or after stopping the server: `npm run create-admin`. For Docker, create the account in the volume before starting the site: `docker run --rm -it -v umuseke-data:/var/lib/umuseke umuseke npm run create-admin`. The file `data/users.json` (or `AUTH_DATA_DIR/users.json`) contains the hashes and salts, is excluded from Git and must be backed up/protected as private data. Sessions are in memory and end on restart. No real name or school name is requested. For a pilot with minors, have the system and procedures evaluated by the institution before use.
 
-### Sécurité et limites de déploiement
+### Security and deployment limits
 
-Les en-têtes de sécurité, contrôles d'origine, restrictions de taille/durée des imports PDF et limites de fréquence constituent des protections de prototype, pas une certification. Les limites de fréquence utilisent l'adresse réseau vue par Node : derrière un reverse proxy, elles peuvent s'appliquer à tous les utilisateurs partageant cette adresse. Le serveur n'a pas de base de données multi-instance, de récupération de mot de passe, d'authentification multifacteur, de journal d'audit ni de sauvegardes automatiques. Les sessions sont perdues au redémarrage. Le tuteur reste accessible sans compte, avec une limite réseau simple.
+Security headers, origin checks, PDF import size/duration restrictions and rate limits are prototype protections, not a certification. Rate limits use the network address seen by Node: behind a reverse proxy, they may apply to all users sharing that address. The server has no multi-instance database, password recovery, multi-factor authentication, audit log or automatic backups. Sessions are lost on restart. The tutor remains accessible without an account, with a simple network limit.
 
-Les documents chargés et leurs passages sont accessibles aux utilisateurs de l'application par la bibliothèque et l'API. N'y chargez aucun document confidentiel, dossier élève, ni manuel protégé sans autorisation de diffusion. Si un fournisseur de modèle externe est configuré, les questions et passages sélectionnés lui sont transmis; utilisez Ollama local ou désactivez le fournisseur si ces données ne doivent pas quitter le serveur. Avant un usage réel avec des mineurs, faites réaliser une revue indépendante, définissez consentement, rétention, sauvegardes et procédure d'incident avec l'établissement, puis déployez uniquement derrière HTTPS et des limites réseau adaptées.
+Loaded documents and their passages are accessible to application users through the library and the API. Do not load any confidential document, student record or protected textbook without authorization to distribute it. If an external model provider is configured, the questions and selected passages are transmitted to it; use local Ollama or disable the provider if this data must not leave the server. Before real use with minors, have an independent review carried out, define consent, retention, backups and incident procedure with the institution, then deploy only behind HTTPS and appropriate network limits.
 
-Voir le rapport détaillé [docs/security_review.md](docs/security_review.md).
+See the detailed report [docs/security_review.md](docs/security_review.md).
