@@ -35,6 +35,19 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000). No model is required to sta
 Install Ollama, download `qwen3:4b` once with `ollama pull qwen3:4b`, start Ollama, then run `./start-qwen.sh`. The model can be replaced, for example with `LLM_MODEL=llama3.2:1b ./start-qwen.sh`. See [AI_MODEL_SETUP.md](AI_MODEL_SETUP.md). No large model is downloaded automatically.
 
 
+## 🚀 Live Demo
+
+The application is deployed on Render and accessible publicly:
+
+🌐 **[Umuseke Learning Companion – Live Application](https://umuseke-rwanda-study-demo.onrender.com)**
+
+- **Hosting:** Render
+- **Deployment:** Docker Web Service via Render Blueprint
+- **Source code:** [AI-EDUCATION-RWANDA](https://github.com/desirejob/AI-EDUCATION-RWANDA)
+- **Health check:** [/api/health](https://umuseke-rwanda-study-demo.onrender.com/api/health)
+
+**Demo limitations:** This deployment uses Render's free tier, with ephemeral storage. User accounts and uploaded documents may be lost after restarts or redeployments. Do not use confidential documents or real student data.
+
 
 ### Sharing and installing
 
@@ -134,6 +147,12 @@ Security headers, origin checks, PDF import size/duration restrictions and rate 
 Loaded documents and their passages are accessible to application users through the library and the API. Do not load any confidential document, student record or protected textbook without authorization to distribute it. If an external model provider is configured, the questions and selected passages are transmitted to it; use local Ollama or disable the provider if this data must not leave the server. Before real use with minors, have an independent review carried out, define consent, retention, backups and incident procedure with the institution, then deploy only behind HTTPS and appropriate network limits.
 
 See the detailed report [docs/security_review.md](docs/security_review.md).
+
+Les en-têtes de sécurité, contrôles d'origine, restrictions de taille/durée des imports PDF et limites de fréquence constituent des protections de prototype, pas une certification. Les limites de fréquence utilisent l'adresse réseau vue par Node : derrière un reverse proxy, elles peuvent s'appliquer à tous les utilisateurs partageant cette adresse. Le serveur n'a pas de base de données multi-instance, de récupération de mot de passe, d'authentification multifacteur, de journal d'audit ni de sauvegardes automatiques. Les sessions sont perdues au redémarrage. Le tuteur reste accessible sans compte, avec une limite réseau simple.
+
+Les documents chargés et leurs passages sont accessibles aux utilisateurs de l'application par la bibliothèque et l'API. N'y chargez aucun document confidentiel, dossier élève, ni manuel protégé sans autorisation de diffusion. Si un fournisseur de modèle externe est configuré, les questions et passages sélectionnés lui sont transmis ; utilisez Ollama local ou désactivez le fournisseur si ces données ne doivent pas quitter le serveur. Avant un usage réel avec des mineurs, faites réaliser une revue indépendante, définissez consentement, rétention, sauvegardes et procédure d'incident avec l'établissement, puis déployez uniquement derrière HTTPS et des limites réseau adaptées.
+
+Voir le rapport détaillé [docs/security_review.md](docs/security_review.md).
 
 Les en-têtes de sécurité, contrôles d'origine, restrictions de taille/durée des imports PDF et limites de fréquence constituent des protections de prototype, pas une certification. Les limites de fréquence utilisent l'adresse réseau vue par Node : derrière un reverse proxy, elles peuvent s'appliquer à tous les utilisateurs partageant cette adresse. Le serveur n'a pas de base de données multi-instance, de récupération de mot de passe, d'authentification multifacteur, de journal d'audit ni de sauvegardes automatiques. Les sessions sont perdues au redémarrage. Le tuteur reste accessible sans compte, avec une limite réseau simple.
 
