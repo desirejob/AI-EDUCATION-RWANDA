@@ -34,6 +34,8 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000). No model is required to sta
 
 Install Ollama, download `qwen3:4b` once with `ollama pull qwen3:4b`, start Ollama, then run `./start-qwen.sh`. The model can be replaced, for example with `LLM_MODEL=llama3.2:1b ./start-qwen.sh`. See [AI_MODEL_SETUP.md](AI_MODEL_SETUP.md). No large model is downloaded automatically.
 
+
+
 ### Sharing and installing
 
 - To share the code, send the project folder (without student PDFs or secrets). The recipient installs Node.js 20+, then runs `npm start` or `./start-8080.sh`.
